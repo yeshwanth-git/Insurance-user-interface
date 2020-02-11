@@ -30,12 +30,8 @@ class AddEvent extends React.PureComponent {
         this.setState({
             inProcess: true,
         });
-
-        debugger;
         event.preventDefault();
         const requestBody = { ...this.state };
-        console.log('requestBody ', requestBody);
-        // const response = await API.put('http://www.mocky.io/v2/5e413c042f0000cb545832fd', requestBody)
         const response = await API.post('http://localhost:8080/rest/events', requestBody)
             .then(resp => {
                 return resp.data;
